@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Uçan Buğra</title>
+    <style>
+        body { margin: 0; overflow: hidden; touch-action: manipulation; background-color: #87CEEB; font-family: sans-serif; }
+        #game-container {
+            position: relative; width: 100vw; height: 100vh;
+            background-image: url('assets/sky_and_grass_background.png');
+            background-size: cover; background-position: center bottom;
+            overflow: hidden; display: flex; justify-content: center; align-items: center;
+        }
+        #game-title {
+            position: absolute; top: 20%; font-size: 50px; color: #808080;
+            -webkit-text-stroke: 3px white; text-align: center; z-index: 10;
+        }
+        #start-button {
+            width: 150px; height: 150px; background-color: #A9A9A9;
+            border: 8px solid white; border-radius: 50%; display: flex;
+            justify-content: center; align-items: center; cursor: pointer; z-index: 9;
+        }
+        #start-button::after {
+            content: ''; border-top: 30px solid transparent; border-bottom: 30px solid transparent;
+            border-left: 50px solid white; margin-left: 15px;
+        }
+        #player {
+            position: absolute; width: 60px; height: 60px;
+            background-image: url('assets/player.png'); background-size: contain;
+            background-repeat: no-repeat; z-index: 5; display: none;
+            filter: drop-shadow(0 0 3px white);
+        }
+        .pipe { position: absolute; width: 80px; background-color: #696969; border-right: 15px solid #303030; z-index: 4; }
+        #score-display {
+            position: absolute; bottom: 30px; left: 30px; width: 120px; height: 60px;
+            background-color: #A9A9A9; border: 4px solid white; border-radius: 15px;
+            display: none; justify-content: center; align-items: center;
+            font-family: 'Arial Black', sans-serif; font-size: 30px; color: white; z-index: 100;
+        }
+        #game-over-screen {
+            position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+            display: none; justify-content: center; align-items: center; z-index: 200;
+        }
+        #game-over-panel {
+            width: 300px; padding: 30px; background: #A9A9A9; border: 6px solid white;
+            border-radius: 25px; text-align: center; color: white;
+        }
+        .control-btn {
+            width: 60px; height: 60px; background: white; border-radius: 50%;
+            display: inline-flex; justify-content: center; align-items: center; font-size: 30px; cursor: pointer; margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1 id="game-title">Uçan Buğra</h1>
+        <div id="start-button"></div>
+        <div id="player"></div>
+        <div id="score-display">0</div>
+        <div id="game-over-screen">
+            <div id="game-over-panel">
+                <h2 style="font-size: 30px;">SKOR</h2>
+                <div id="final-score" style="font-size: 50px;">0</div>
+                <div>
+                    <div class="control-btn" onclick="location.reload()">🏠</div>
+                    <div class="control-btn" onclick="location.reload()">🔄</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
